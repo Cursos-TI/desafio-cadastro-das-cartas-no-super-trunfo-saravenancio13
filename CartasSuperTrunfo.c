@@ -30,7 +30,7 @@ int main() {
     scanf("%s", codigo1);
 
     printf("Nome da cidade: ");
-    scanf(" %[^\n]s", nomeCidade1);  // lê até o ENTER
+    scanf(" %[^\n]", nomeCidade1);  // lê até o ENTER
 
     printf("População: ");
     scanf("%d", &populacao1);
@@ -56,7 +56,7 @@ int main() {
     scanf("%s", codigo2);
 
     printf("Nome da cidade: ");
-    scanf(" %[^\n]s", nomeCidade2);
+    scanf(" %[^\n]", nomeCidade2);
 
     printf("População: ");
     scanf("%d", &populacao2);
