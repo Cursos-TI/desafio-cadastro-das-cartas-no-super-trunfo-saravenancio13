@@ -52,6 +52,27 @@ int main() {
 
     printf("\n"); // Linha em branco
 
+    // Cálculo da Densidade Populacional (com proteção)
+if (Area1 != 0.0f) {
+    DensidadePopulacional1 = (float)Populacao1 / Area1;
+} else {
+    DensidadePopulacional1 = 0.0f;
+}
+
+// Cálculo do PIB per Capita (com proteção)
+if (Populacao1 != 0UL) {
+    PIBperCapita1 = (Pib1 * 1000000000.0f) / Populacao1;
+} else {
+    PIBperCapita1 = 0.0f;
+}
+
+// Cálculo da Densidade Populacional Inversa (com proteção)
+if (DensidadePopulacional1 != 0.0f) {
+    DensidadePopulacionalinversa1 = 1.0f / DensidadePopulacional1;
+} else {
+    DensidadePopulacionalinversa1 = 0.0f;
+}
+
     // Leitura dos dados da Carta 2
     printf("Cadastro da Carta 2:\n");
 
@@ -77,6 +98,29 @@ int main() {
     scanf("%d", &PontosTuristicos2);
 
     printf("\n\n");
+
+    // Cálculo da Densidade Populacional (com proteção)
+if (Area2 != 0.0f) {
+    DensidadePopulacional2 = (float)Populacao2 / Area2;
+} else {
+    DensidadePopulacional2 = 0.0f;
+}
+
+// Cálculo do PIB per Capita (com proteção)
+if (Populacao2 != 0UL) {
+    PIBperCapita2 = (Pib2 * 1000000000.0f) / Populacao2;
+} else {
+    PIBperCapita2 = 0.0f;
+}
+
+// Cálculo da Densidade Populacional Inversa (com proteção)
+if (DensidadePopulacional2 != 0.0f) {
+    DensidadePopulacionalinversa2 = 1.0f / DensidadePopulacional2;
+} else {
+    DensidadePopulacionalinversa2 = 0.0f;
+}
+
+printf("\n");
 
     // Exibição dos dados formatados da Carta 1
     printf("Carta 1:\n");
@@ -160,11 +204,11 @@ if (DensidadePopulacional2 != 0.0f) {
 
     float SuperPoderCarta1 = Populacao1 + Area1 + Pib1 + PontosTuristicos1 + PIBperCapita1 + DensidadePopulacionalinversa1;
 
-    printf(" O Super Poder da Carta 1 é: %f\n", SuperPoderCarta1);
+    printf(" O Super Poder da Carta 1 é: %.4f\n", SuperPoderCarta1);
 
     float SuperPoderCarta2 = Populacao2 + Area2 + Pib2 + PontosTuristicos2 + PIBperCapita2 + DensidadePopulacionalinversa2;
 
-    printf(" O Super Poder da Carta 2 é: %f\n", SuperPoderCarta2);
+    printf(" O Super Poder da Carta 2 é: %.4f\n", SuperPoderCarta2);
 
     printf("\n");
 
