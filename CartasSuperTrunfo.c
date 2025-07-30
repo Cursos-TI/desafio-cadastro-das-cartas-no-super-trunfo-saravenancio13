@@ -1,227 +1,93 @@
 
 #include <stdio.h>
+#include <string.h>
+
+// Programa Super Trunfo - Versão com Super Poder
 
 int main() {
-    // Declaração das variáveis para a Carta 1
-    char Estado1;
-    char Codigo1[4];
-    char NomeCidade1[50];
-    unsigned long int Populacao1;
-    float Area1;
-    float Pib1;
-    int PontosTuristicos1;
-    float DensidadePopulacional1;
-    float DensidadePopulacionalinversa1;
-    float PIBperCapita1;
+    // Carta 1 - Dados
+    char Estado1[20] = "Minas Gerais";
+    char Codigo1[5] = "MG01";
+    char NomeCidade1[50] = "Ouro Preto";
+    unsigned long int Populacao1 = 74000;
+    float Area1 = 1245.10;
+    float Pib1 = 2350.75; // em milhões
+    int PontosTuristicos1 = 18;
 
-    // Declaração das variáveis para a Carta 2
-    char Estado2;
-    char Codigo2[4];
-    char NomeCidade2[50];
-    unsigned long int Populacao2;
-    float Area2;
-    float Pib2;
-    int PontosTuristicos2;
-    float DensidadePopulacional2;
-    float DensidadePopulacionalinversa2;
-    float PIBperCapita2;
+    // Carta 2 - Dados
+    char Estado2[20] = "Santa Catarina";
+    char Codigo2[5] = "SC02";
+    char NomeCidade2[50] = "Blumenau";
+    unsigned long int Populacao2 = 361000;
+    float Area2 = 519.80;
+    float Pib2 = 21100.30; // em milhões
+    int PontosTuristicos2 = 12;
 
-    // Leitura dos dados da Carta 1
-    printf("Cadastro da Carta 1:\n");
+    // Cálculos - Densidade e PIB per capita
+    float Densidade1 = (Area1 != 0) ? (float)Populacao1 / Area1 : 0.0f;
+    float Densidade2 = (Area2 != 0) ? (float)Populacao2 / Area2 : 0.0f;
 
-    printf("Estado (letra de A a H): ");
-    scanf(" %c", &Estado1);
+    float PIBperCapita1 = (Populacao1 != 0) ? (Pib1 * 1e6) / Populacao1 : 0.0f;
+    float PIBperCapita2 = (Populacao2 != 0) ? (Pib2 * 1e6) / Populacao2 : 0.0f;
 
-    printf("Código da carta (ex: A01): ");
-    scanf("%s", Codigo1);
+    float DensidadeInversa1 = (Densidade1 != 0) ? 1.0f / Densidade1 : 0.0f;
+    float DensidadeInversa2 = (Densidade2 != 0) ? 1.0f / Densidade2 : 0.0f;
 
-    printf("Nome da cidade: ");
-    scanf(" %[^\n]", NomeCidade1); 
+    // Cálculo do Super Poder
+    float SuperPoder1 = Populacao1 + Area1 + Pib1 + PontosTuristicos1 + PIBperCapita1 + DensidadeInversa1;
+    float SuperPoder2 = Populacao2 + Area2 + Pib2 + PontosTuristicos2 + PIBperCapita2 + DensidadeInversa2;
 
-    printf("População: ");
-    scanf("%lu", &Populacao1);
-
-    printf("Área (em km²): ");
-    scanf("%f", &Area1);
-
-    printf("PIB 1: ");
-    scanf("%f", &Pib1);
-
-    printf("Número de pontos turísticos: ");
-    scanf("%d", &PontosTuristicos1);
-
-    printf("\n"); // Linha em branco
-
-    // Cálculo da Densidade Populacional (com proteção)
-if (Area1 != 0.0f) {
-    DensidadePopulacional1 = (float)Populacao1 / Area1;
-} else {
-    DensidadePopulacional1 = 0.0f;
-}
-
-// Cálculo do PIB per Capita (com proteção)
-if (Populacao1 != 0UL) {
-    PIBperCapita1 = (Pib1 * 1000000000.0f) / Populacao1;
-} else {
-    PIBperCapita1 = 0.0f;
-}
-
-// Cálculo da Densidade Populacional Inversa (com proteção)
-if (DensidadePopulacional1 != 0.0f) {
-    DensidadePopulacionalinversa1 = 1.0f / DensidadePopulacional1;
-} else {
-    DensidadePopulacionalinversa1 = 0.0f;
-}
-
-    // Leitura dos dados da Carta 2
-    printf("Cadastro da Carta 2:\n");
-
-    printf("Estado (letra de A a H): ");
-    scanf(" %c", &Estado2);
-
-    printf("Código da carta (ex: B03): ");
-    scanf("%s", Codigo2);
-
-    printf("Nome da cidade: ");
-    scanf(" %[^\n]", NomeCidade2);
-
-    printf("População: ");
-    scanf("%lu", &Populacao2);
-
-    printf("Área (em km²): ");
-    scanf("%f", &Area2);
-
-    printf("PIB 2: ");
-    scanf("%f", &Pib2);
-
-    printf("Número de pontos turísticos: ");
-    scanf("%d", &PontosTuristicos2);
-
-    printf("\n\n");
-
-    // Cálculo da Densidade Populacional (com proteção)
-if (Area2 != 0.0f) {
-    DensidadePopulacional2 = (float)Populacao2 / Area2;
-} else {
-    DensidadePopulacional2 = 0.0f;
-}
-
-// Cálculo do PIB per Capita (com proteção)
-if (Populacao2 != 0UL) {
-    PIBperCapita2 = (Pib2 * 1000000000.0f) / Populacao2;
-} else {
-    PIBperCapita2 = 0.0f;
-}
-
-// Cálculo da Densidade Populacional Inversa (com proteção)
-if (DensidadePopulacional2 != 0.0f) {
-    DensidadePopulacionalinversa2 = 1.0f / DensidadePopulacional2;
-} else {
-    DensidadePopulacionalinversa2 = 0.0f;
-}
-
-printf("\n");
-
-    // Exibição dos dados formatados da Carta 1
-    printf("Carta 1:\n");
-    printf("Estado: %c\n", Estado1);
+    // Exibição - Carta 1
+    printf("\n==== Carta 1 ====\n");
+    printf("Cidade: %s (%s)\n", NomeCidade1, Estado1);
     printf("Código: %s\n", Codigo1);
-    printf("Nome da Cidade: %s\n", NomeCidade1);
     printf("População: %lu\n", Populacao1);
     printf("Área: %.2f km²\n", Area1);
-    printf("PIB: %.2f\n", Pib1);
-    printf("Número de Pontos Turísticos: %d\n", PontosTuristicos1);
+    printf("PIB: R$ %.2f milhões\n", Pib1);
+    printf("Pontos Turísticos: %d\n", PontosTuristicos1);
+    printf("Densidade Populacional: %.2f hab/km²\n", Densidade1);
+    printf("Densidade Populacional Inversa: %.6f\n", DensidadeInversa1);
+    printf("PIB per capita: R$ %.2f\n", PIBperCapita1);
+    printf("Super Poder: %.2f\n", SuperPoder1);
 
-   // Cálculo da Densidade Populacional (com proteção)
-if (Area1 != 0.0f) {
-    DensidadePopulacional1 = (float)Populacao1 / Area1;
-} else {
-    DensidadePopulacional1 = 0.0f;
-}
-
-// Cálculo do PIB per Capita (com proteção)
-if (Populacao1 != 0UL) {
-    PIBperCapita1 = (Pib1 * 1000000000.0f) / Populacao1;
-} else {
-    PIBperCapita1 = 0.0f;
-}
-
-// Cálculo da Densidade Populacional Inversa (com proteção)
-if (DensidadePopulacional1 != 0.0f) {
-    DensidadePopulacionalinversa1 = 1.0f / DensidadePopulacional1;
-} else {
-    DensidadePopulacionalinversa1 = 0.0f;
-}
-
-    printf("A Densidade populacional 1 é: %.2f\n", DensidadePopulacional1);
-    printf("A Densidade populacional inversa 1 é: %.6f\n", DensidadePopulacionalinversa1);
-    printf("O PIB per capita 1 é: %.2f\n", PIBperCapita1);
-
-
-    printf("\n");
-
-    // Exibição dos dados formatados da Carta 2
-    printf("Carta 2:\n");
-    printf("Estado: %c\n", Estado2);
+    // Exibição - Carta 2
+    printf("\n==== Carta 2 ====\n");
+    printf("Cidade: %s (%s)\n", NomeCidade2, Estado2);
     printf("Código: %s\n", Codigo2);
-    printf("Nome da Cidade: %s\n", NomeCidade2);
     printf("População: %lu\n", Populacao2);
     printf("Área: %.2f km²\n", Area2);
-    printf("PIB: %.2f\n", Pib2);
-    printf("Número de Pontos Turísticos: %d\n", PontosTuristicos2);
+    printf("PIB: R$ %.2f milhões\n", Pib2);
+    printf("Pontos Turísticos: %d\n", PontosTuristicos2);
+    printf("Densidade Populacional: %.2f hab/km²\n", Densidade2);
+    printf("Densidade Populacional Inversa: %.6f\n", DensidadeInversa2);
+    printf("PIB per capita: R$ %.2f\n", PIBperCapita2);
+    printf("Super Poder: %.2f\n", SuperPoder2);
 
-    printf("\n");
-    
-    // Cálculo da Densidade Populacional (com proteção)
-if (Area2 != 0.0f) {
-    DensidadePopulacional2 = (float)Populacao2 / Area2;
-} else {
-    DensidadePopulacional2 = 0.0f;
-}
+    // Comparação por atributo (PIB per capita)
+    printf("\n==== Comparação de cartas (Atributo: PIB per capita) ====\n");
+    printf("Carta 1 - %s: R$ %.2f\n", NomeCidade1, PIBperCapita1);
+    printf("Carta 2 - %s: R$ %.2f\n", NomeCidade2, PIBperCapita2);
 
-// Cálculo do PIB per Capita (com proteção)
-if (Populacao2 != 0UL) {
-    PIBperCapita2 = (Pib2 * 1000000000.0f) / Populacao2;
-} else {
-    PIBperCapita2 = 0.0f;
-}
+    if (PIBperCapita1 > PIBperCapita2) {
+        printf("Resultado: Carta 1 (%s) venceu!\n", NomeCidade1);
+    } else if (PIBperCapita2 > PIBperCapita1) {
+        printf("Resultado: Carta 2 (%s) venceu!\n", NomeCidade2);
+    } else {
+        printf("Resultado: Empate! Ambas têm o mesmo PIB per capita.\n");
+    }
 
-// Cálculo da Densidade Populacional Inversa (com proteção)
-if (DensidadePopulacional2 != 0.0f) {
-    DensidadePopulacionalinversa2 = 1.0f / DensidadePopulacional2;
-} else {
-    DensidadePopulacionalinversa2 = 0.0f;
-}
+    // Comparação de Super Poder (extra, não obrigatória)
+    printf("\n==== Comparação de Super Poder ====\n");
+    printf("Super Poder 1 ( %s ): %.2f\n", NomeCidade1, SuperPoder1);
+    printf("Super Poder 2 ( %s ): %.2f\n", NomeCidade2, SuperPoder2);
 
-    printf("A Densidade populacional 2 é: %.2f\n", DensidadePopulacional2);
-    printf("A Densidade populacional inversa 2 é: %.6f\n", DensidadePopulacionalinversa2);
-    printf("O PIB per capita 2 é: %.2f\n", PIBperCapita2);
-
-
-    printf("\n");
-
-    //Calcula do Super Poder
-
-    float SuperPoderCarta1 = Populacao1 + Area1 + Pib1 + PontosTuristicos1 + PIBperCapita1 + DensidadePopulacionalinversa1;
-
-    printf(" O Super Poder da Carta 1 é: %.4f\n", SuperPoderCarta1);
-
-    float SuperPoderCarta2 = Populacao2 + Area2 + Pib2 + PontosTuristicos2 + PIBperCapita2 + DensidadePopulacionalinversa2;
-
-    printf(" O Super Poder da Carta 2 é: %.4f\n", SuperPoderCarta2);
-
-    printf("\n");
-
-    //Comparativo das cartas
-    //resultado 0 = Falso
-    //resultado 1 = verdadeiro
-
-    printf("A Populacao 1 é > do que a Populacao 2: %d\n", Populacao1 > Populacao2);
-    printf("A Area 1 é > do que a Area 2: %d\n", Area1 > Area2);
-    printf("O PIB 1 é > do que o PIB 2: %d\n", Pib1 > Pib2);
-    printf("Os Pontos turisticos 1 é > que os Pontos turisticos 2: %d\n", PontosTuristicos1 > PontosTuristicos2);
-    printf("A Densidade Populacional 1 é < do que a Densidade Populacional 2: %d\n", DensidadePopulacional1 < DensidadePopulacional2);
-    printf("O PIB Per Capita 1 é > do que o PIB Per Capita 2: %d\n", PIBperCapita1 > PIBperCapita2); 
+    if (SuperPoder1 > SuperPoder2) {
+        printf("Super Poder Vencedor: Carta 1 (%s)\n", NomeCidade1);
+    } else if (SuperPoder2 > SuperPoder1) {
+        printf("Super Poder Vencedor: Carta 2 (%s)\n", NomeCidade2);
+    } else {
+        printf("Empate no Super Poder!\n");
+    }
 
     return 0;
 }
